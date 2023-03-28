@@ -19,6 +19,8 @@ Route::get('/', function () {
 
 Route::prefix('admin')->middleware(['auth'])->group(function (){
     Route::get('dashboard',[\App\Http\Controllers\AuthenticatedUsers\DashboardController::class,'index'])->name('dashboard');
+    require __DIR__.'/users/authenticated.php';
+
 });
 
 Route::fallback(function () {
