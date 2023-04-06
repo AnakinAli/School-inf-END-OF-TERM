@@ -11,17 +11,31 @@
                 <div class="p-6 bg-white border-b border-gray-200 text-3xl">
                     {{__('Topics')}}
                 </div>
-                {{--                @foreach($users as $user)--}}
-                {{--                    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">--}}
-                {{--                        <div class="p-6 bg-white border-b border-gray-200">--}}
-                {{--                            <div class="flex justify-between">--}}
-                {{--                                <p>Id: <span class="font-bold text-lg">{{$user->id}}</span></p>--}}
-                {{--                                <p>Name: <span class="font-bold text-lg">{{$user->name}}</span></p>--}}
-                {{--                                <p>Email: <span class="font-bold text-lg">{{$user->email}}</span></p>--}}
-                {{--                            </div>--}}
-                {{--                        </div>--}}
-                {{--                    </div>--}}
-                {{--                @endforeach--}}
+
+                <div class="p-2 ">
+                    <!-- Session Status -->
+                    <x-auth-session-status class="mb-4" :status="session('status')" />
+
+                    <!-- Validation Errors -->
+                    <x-auth-validation-errors class="mb-4" :errors="$errors" />
+                </div>
+
+                <form method="POST" action="{{ route('add_topic') }}" class="p-2 w-6xl grid grid-flow-row">
+                    @csrf
+
+                    <!-- Email Address -->
+                    <div>
+                        <x-label for="topic" :value="__('Topic')" />
+
+                        <x-input id="topic" class="block mt-1 w-full" type="text" name="topic" :value="old('topic')" required autofocus />
+                    </div>
+
+                    <div class="flex items-center justify-end mt-4">
+                        <x-button class="ml-3">
+                            {{ __('Add Topic') }}
+                        </x-button>
+                    </div>
+                </form>
 
             </div>
         </div>
