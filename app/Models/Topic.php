@@ -13,4 +13,9 @@ class Topic extends Model
       'topic_name',
       'admin_id'
     ];
+
+    public function publication()
+    {
+        return $this->hasMany(Info::class,'topic_id','id');
+    }
 }

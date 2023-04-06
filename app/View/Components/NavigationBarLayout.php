@@ -33,19 +33,9 @@ class NavigationBarLayout
                 'name' => __('Home')
             ],
             [
-                'href' => route('welcome'),
-                'active' => request()->routeIs('d'),
-                'name' => __('Light Electronics')
-            ],
-            [
-                'href' => route('welcome'),
-                'active' => request()->routeIs('d'),
-                'name' => __('Heavy Electronics')
-            ],
-            [
-                'href' => route('welcome'),
-                'active' => request()->routeIs('d'),
-                'name' => __('Positive Influence')
+                'href' => route('topics'),
+                'active' => request()->routeIs('topics'),
+                'name' => __('Topics')
             ],
             [
                 'href' => route('login'),

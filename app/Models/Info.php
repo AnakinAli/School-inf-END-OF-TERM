@@ -13,4 +13,13 @@ class Info extends Model
         'topic_id',
         'info',
     ];
+    public function topic()
+    {
+        return $this->belongsTo(Topic::class,'id','topic_id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class,'id','id');
+    }
 }
